@@ -6,7 +6,7 @@ Repositório para hospedagem das soluções do desafio de programação da Acade
 
 2 -> Para executar direito do prompt do Windows, basta colocar os arquivos *desafio01.py*,  *desafio02.py*, *desafio03.py* em seu desktop, logo em seguida abrir o prompt de comando e 1) digitar o comando "cd desktop" para acessar o desktop no cmd e 2) executar o arquivo digitando "python nomedoarquivo.py".
 
-## Exempo de execução via prompt de comando do Windows
+## Exemplo de execução via prompt de comando do Windows
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/11592110/154368856-21c5897e-342e-49e1-9c5f-7232dee6978e.png"/>
