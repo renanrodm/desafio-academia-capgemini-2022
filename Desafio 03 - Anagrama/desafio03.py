@@ -1,25 +1,27 @@
-def grupoDeAnagramas(word):
+def paresAnagramas(string):
+
 
     grupo_anagramas = dict()
     anagramas = list()
 
-    for n in range(1, len(word)+1):
-        for i in range(0, len(word)):
-            sorted_word = "".join(sorted(word[i: i+n]))
 
-            if len(sorted_word) < n:
+    for y in range(1, len(string)+1):
+        for x in range(0, len(string)):
+            str_ordenada = "".join(sorted(string[x: x + y]))
+
+            if len(str_ordenada) < y:
                 break
-
-            if sorted_word not in grupo_anagramas:
-                grupo_anagramas[sorted_word] = [word[i: i + n]]
+            
+            if str_ordenada not in grupo_anagramas:
+                grupo_anagramas[str_ordenada] = [string[x: x + y]]
             else:
-                grupo_anagramas[sorted_word].append(word[i: i + n])
+                grupo_anagramas[str_ordenada].append(string[x: x + y])
 
-            if len(grupo_anagramas[sorted_word]) >= 2:
-                anagramas.append(grupo_anagramas[sorted_word])
+            if len(grupo_anagramas[str_ordenada]) >= 2 and grupo_anagramas[str_ordenada] not in anagramas:
+                anagramas.append(grupo_anagramas[str_ordenada])
 
     return len(anagramas), anagramas
 
 #ifailuhkqq
-word = 'ifailuhkqq'
-print(grupoDeAnagramas(word))
+palavra = 'ifailuhkqq'
+print(paresAnagramas(palavra))
