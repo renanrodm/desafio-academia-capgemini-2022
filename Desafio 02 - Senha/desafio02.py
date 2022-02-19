@@ -1,60 +1,34 @@
+"""
+Possui no mínimo 6 caracteres.
+Contém no mínimo 1 digito.
+Contém no mínimo 1 letra em minúsculo.
+Contém no mínimo 1 letra em maiúsculo.
+Contém no mínimo 1 caractere especial. Os caracteres especiais são: !@#$%^&*()-+"""
+
+
 def verificarSenha(senha):
-    caracteres_especiais = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+']
-    arr_senha = list(senha)
+    caracteres_especiais = '!@#$%^&*()-+'
+    carac_especial = False
 
-    if len(arr_senha) < 6:
-
-        print(f'Sua senha precisa de mais {6 - len(arr_senha)} caracateres para ser considerada segura.')
-
+    if len(senha) < 6:
+        carac_faltantes = 6 - len(senha)
+        print('- Sua senha precisa ter pelo menos 6 dígitos;', f'- Você precisa de mais {carac_faltantes} caractere(s);', sep='\n')
+    elif senha.isalpha():
+        print('- Sua senha precisa de pelo menos 1 número para ser considerada segura;')
+    elif senha.isupper():
+        print('- Sua senha precisa de pelo menos 1 letra em minúsculo;')
+    elif senha.islower():
+        print('- Sua senha precisa de pelo menos 1 letra em maiúsculo;')
     else:
-
-        digito = False
-        for dig in arr_senha:
-            if dig.isnumeric():
-                digito = True
+        for letra in senha:
+            if letra in caracteres_especiais:
+                carac_especial = True
                 break
-
-        if digito == False:
-
-            print('Sua senha precisa ter pelo menos UM DÍGITO para ser considerada segura.')
-
+        if carac_especial:
+            print('- Sua senha é considerada segura de acordo com todos os critérios.')
         else:
-
-            minuscula = False
-            for letra in arr_senha:
-                if letra.islower():
-                    minuscula = True
-                    break
-
-            if minuscula == False:
-                print('Sua senha precisa ter pelo menos UMA letra em MINÚSCULO para ser considerada segura.')
-
-            else:
-
-                maiuscula = False
-                for dig in arr_senha:
-                    if dig.isupper():
-                        maiuscula = True
-                        break
-
-                if maiuscula == False:
-                    print('Sua senha precisa ter pelo menos UMA letra em MAIÚSCULO para ser considerada segura.')
-
-                else:
-
-                    caractere = False
-                    for carac in caracteres_especiais:
-                        for dig in arr_senha:
-                            if carac == dig:
-                                caractere = True
-                                break
-
-                    if caractere == False:
-                        print('Sua senha precisa ter pelo menos um desses caracateres especiais para ser considerada segura: !@#$%^&*()-+ ')
-
-                    else:
-                        print('Sua senha atende todos os critérios e é considerada segura.')
+            print('- Sua senha precisa de pelo menos 1 caractere especial: !@#$%^&*()-+')
 
 
-senha = "Ya3&ab"
+senha = input('Digite sua senha: ')
 verificarSenha(senha)
